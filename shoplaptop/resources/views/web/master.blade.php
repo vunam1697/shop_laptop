@@ -11,7 +11,7 @@
     <meta name="copyright" content="" />
     <meta property="og:image" content="">
     <!--link css-->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/slick.min.css">
     <link rel="stylesheet" type="text/css" href="css/slick-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
