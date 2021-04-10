@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Trang chủ | </title>
+    <title>Trang chủ | Laptop</title>
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
     <meta name="copyright" content="" />
     <meta property="og:image" content="">
     <!--link css-->
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/slick.min.css">
-    <link rel="stylesheet" type="text/css" href="css/slick-theme.min.css">
-    <link rel="stylesheet" type="text/css" href="css/jquery.mmenu.all.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/slick.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/slick-theme.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/jquery.mmenu.all.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/responsive.css') }}">
+    <script type="text/javascript" src="{{ url('/web/js/jquery.min.js') }}"></script>
 </head>
 <body>
 
@@ -27,10 +27,11 @@
     </main>
 
 	@include('web.components.footer')
-<!--Link js-->
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/jquery.mmenu.all.js"></script>
-<script type="text/javascript" src="js/slick.min.js"></script>
-<script type="text/javascript" src="js/private.js"></script>
+    
+    <!--Link js-->
+    <script type="text/javascript" src="{{ url('/web/js/bootstrap.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('/web/js/jquery.mmenu.all.js') }}"></script>
+    <script type="text/javascript" src="{{ url('/web/js/slick.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url('/web/js/private.js') }}"></script>
 </body>
 </html>
