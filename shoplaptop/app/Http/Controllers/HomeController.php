@@ -5,9 +5,10 @@ use App\Models\Sanpham;
 class HomeController extends Controller
 {
     public function getHome() {
-        $data = Sanpham::all();//lay all
+        // $data = Sanpham::all();//lay all
         //$data = Sanpham::first();//lay 1
         //$data = Sanpham::where('id',1);//condition
+        $data="";
         return view('web.pages.home',compact('data'));
     }
 }
