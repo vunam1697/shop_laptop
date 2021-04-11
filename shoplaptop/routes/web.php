@@ -17,8 +17,8 @@ Route::get('/', 'App\Http\Controllers\HomeController@getHome')->name('home.index
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 
-    Route::get('/admin/index-login', 'LoginController@index')->name('index.index');
+    Route::get('/admin/index-login', 'AuthenController@index')->name('index.index');
 
-    Route::post('/admin/login', ['as' => 'admin.login', 'uses' => 'LoginController@login']);
+    Route::post('/admin/login', ['as' => 'admin.login', 'uses' => 'AuthenController@login']);
 
 });

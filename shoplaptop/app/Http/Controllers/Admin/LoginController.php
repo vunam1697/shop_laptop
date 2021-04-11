@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
 
-class LoginController extends Controller
+class AuthenController extends Controller
 {
 
     //trang index đăng nhập
