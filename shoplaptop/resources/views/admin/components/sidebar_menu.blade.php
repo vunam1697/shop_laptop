@@ -10,7 +10,7 @@
                 <a><i class="fa fa-edit"></i>Quản lý sản phẩm <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="{{url('/admin/product')}}">Danh sách sản phẩm </a></li>
-                    <li><a href="thucthi/add-product.php">Thêm </a></li>
+                    <li><a href="{{route('saveProduct.index')}}"> Thêm </a></li>
                 </ul>
             </li>
             <li>

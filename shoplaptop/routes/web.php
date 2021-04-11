@@ -38,4 +38,10 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
     //sản phẩm
     Route::get('/admin/product', 'ProductController@index')->name('product.index');
 
+    Route::get('/admin/save-product', 'ProductController@saveProduct')->name('saveProduct.index');
+
+    Route::post('/admin/product', ['as' => 'admin.saveProduct', 'uses' => 'ProductController@save']);
+
+    Route::get('/admin/edit-product/{id}', 'ProductController@eidtProduct')->name('editProduct.index');
+
 });
