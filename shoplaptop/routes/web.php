@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@getHome')->name('home.index');
 
+Route::get('/san-pham', 'App\Http\Controllers\HomeController@getProduct')->name('home.product');
+
+Route::get('/san-pham/{slug}', 'App\Http\Controllers\HomeController@getProductDetail')->name('home.product-detail');
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 
     //đăng nhập admin

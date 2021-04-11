@@ -24,7 +24,7 @@
     </section> -->
     <section class="block-group pd-60">
         <div class="container">
-            <h2 class="title">sản phẩm nổi bật</h2>
+            <h2 class="title">sản phẩm nổi bật {{ @$site_info }}</h2>
             <div class="product-slider">
                 <div class="col-md-12">
                     <div class="product-item">

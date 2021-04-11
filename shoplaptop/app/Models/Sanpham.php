@@ -12,6 +12,11 @@ class Sanpham extends Model
     protected $table = 'sanpham';
     protected $fillable = ['tensp', 'mota', 'noidung', 'hinhanh', 'thuvienanh', 'giaban', 'soluong', 'cpu', 'ram',
     'ocung', 'carddohoa', 'manhinh', 'pin', 'trongluong', 'mausac', 'kichthuoc', 'noibat', 'hienthi'];
+
+    public function Loaisp()
+    {
+        return $this->belongsToMany('App\Models\LoaiSp', 'sanpham_loaisp', 'id_sanpham', 'id_loaisp');
+    }
 }
 
 // php artisan make:model Sanpham
