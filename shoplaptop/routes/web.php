@@ -31,4 +31,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
     //home
     Route::get('/admin/home', 'HomeController@index')->name('home.index');
 
+    //sản phẩm
+    Route::get('/admin/product', 'ProductController@index')->name('product.index');
+
 });
