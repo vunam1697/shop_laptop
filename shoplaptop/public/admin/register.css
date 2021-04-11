@@ -1,7 +1,7 @@
 body{
 	margin: 0px;
 	padding: 0px;
-	background: url(../img/login.jpg);
+	background: url(../image/login.jpg);
 	background-size: cover;
 	font-family: sans-serif;
 }
@@ -40,7 +40,7 @@ h1{
 	width: 100%;
 	margin-bottom: 20px;
 }
-.loginbox input[type="text"], input[type="PassWord"]
+.loginbox input[type="text"], input[type="password"], input[type="email"]
 {
 	border: none;
 	border-bottom: 1px solid #fff;
@@ -75,3 +75,6 @@ h1{
 	color: #ffc107;
 }
 
+.loginbox  .error{
+	color: red;
+}

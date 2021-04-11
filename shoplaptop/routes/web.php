@@ -17,8 +17,18 @@ Route::get('/', 'App\Http\Controllers\HomeController@getHome')->name('home.index
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 
+    //đăng nhập admin
     Route::get('/admin/index-login', 'AuthenController@index')->name('index.index');
 
     Route::post('/admin/login', ['as' => 'admin.login', 'uses' => 'AuthenController@login']);
+
+    Route::get('/admin/logout', 'AuthenController@logout');
+
+    Route::get('/admin/register', 'AuthenController@registerIndex')->name('register.index');;
+
+    Route::post('/admin/register', ['as' => 'admin.register', 'uses' => 'AuthenController@register']);
+
+    //home
+    Route::get('/admin/home', 'HomeController@index')->name('home.index');
 
 });
