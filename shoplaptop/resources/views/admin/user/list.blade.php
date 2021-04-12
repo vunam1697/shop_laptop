@@ -26,7 +26,7 @@
             @endif
 
             <div class="x_title">
-                <h2>Danh sách sản phẩm <small><a href="{{route('saveProduct.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm sản phẩm</i></a></small></h2>
+                <h2>Danh sách người dùng <small><a href="{{route('saveUser.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm người dùng</i></a></small></h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -34,11 +34,10 @@
                     <table id="myTable" class="display">
                         <thead>
                             <tr>
-                                <th>Tên sản phẩm </th>
-                                <th>Loại sản phẩm </th>
-                                <th>Hình ảnh</th>
-                                <th>Số lượng</th>
-                                <th>Giá bán</th>
+                                <th>Tên người dùng</th>
+                                <th>Email </th>
+                                <th>Tên đăng nhập</th>
+                                <th>Quyền quản trị</th>
                                 <th>Ngày tạo</th>
                                 <th>Chức năng</th>
                             </tr>
@@ -47,26 +46,27 @@
                             @foreach($datas as $key => $value)
                             <tr>
                                 <td>
-                                    <span>{{$value -> tensp}}</span>
+                                    <span>{{$value -> full_name}}</span>
                                 </td>
                                 <td>
-                                    <span>{{$value-> Loaisp()->first() -> tenloaisp}}</span>
+                                    <span>{{$value -> email}}</span>
                                 </td>
                                 <td>
-                                    <img src="{{url('/image')}}/{{$value -> hinhanh}}" width="100" />
+                                    <span>{{$value -> name}}</span>
                                 </td>
                                 <td>
-                                    <span>{{$value -> soluong}}</span>
-                                </td>
-                                <td>
-                                    <span><?php echo number_format($value->giaban) ?> </span>
+                                    @if($value->isAdmin==0)
+                                        <span>Không phải admin</span>
+                                    @else
+                                        <span> Là admin </span>
+                                    @endif
                                 </td>
                                 <td>
                                     <span>{{$value -> created_at}} </span>
                                 </td>
                                 <td>
-                                    <a href="{{route('editProduct.index', ['id'=> $value -> id ])}}" title="Cập nhật"><button  type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> </button></a>
-                                    <button title="Xóa" onclick="deleteSanPham('{{$value -> id}}')" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i> </button>                                    <!-- <button type="button" class="btn btn-info"><i class="fa fa-eye"></i> Chi tiết</button> -->
+                                    <a href="{{route('editUser.index', ['id'=> $value -> id ])}}" title="Cập nhật"><button  type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> </button></a>
+                                    <button title="Xóa" onclick="deleteUser('{{$value -> id}}')" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i> </button>                                   
                                 </td>
                             </tr>
                             @endforeach
@@ -87,7 +87,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Bạn có chắc chắn muốn thực hiện chức năng này.</h4>
-                <input type="hidden" name="id" id="idSanPham">
+                <input type="hidden" name="id" id="idUser">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
             </div>
             <div class="modal-footer">
@@ -101,7 +101,7 @@
 @stop
 
 <script>
-   function deleteSanPham(id){
-            $('#idSanPham').val(id);
+   function deleteUser(id){
+            $('#idUser').val(id);
         }
 </script>

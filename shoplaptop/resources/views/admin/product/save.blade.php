@@ -34,7 +34,7 @@
                                 <div class="panel panel-default">
                                     <div class="panel-heading">
                                         @if(!empty($sanpham) && $sanpham->id !=0)
-                                        <h4 class="panel-title">Cập nhật sản phẩm</h4>
+                                        <h4 class="panel-title">Cập nhật sản phẩm </h4>
                                         <input class="form-control" name="txtId" value="{{$sanpham -> id }}" type="hidden" />
                                         @else
                                         <h4 class="panel-title">Thêm sản phẩm</h4>
@@ -44,48 +44,48 @@
                                     <div class="panel-body">
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Tên sản phẩm </label>
+                                                <label for="reg_input_name" class="req">Tên sản phẩm <i class="required"> * </i></label>
                                                 <input class="form-control" name="txtTenSP" value="{{$sanpham -> tensp }}" type="text" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Loại sản phẩm </label>
+                                                <label for="reg_input_name" class="req">Loại sản phẩm <i class="required"> * </i></label>
                                                 <select name="txtLoaiSP" class="form-control" required>
                                                     @if(!empty($loaiSPs))
-                                                    @foreach($loaiSPs as $key => $value)
-                                                    <!-- @if(!empty($sanpham-> Loaisp()->first() -> id)){
+                                                        <option value=""> Chọn loại sản phẩm</option>
+                                                        @foreach($loaiSPs as $key => $value)
+                                                            @if(!empty($sanpham-> Loaisp()->first() -> id) && $sanpham-> Loaisp()->first() -> id == $value->id)
                                                                 <option value="{{$value-> id}}" selected> {{ $value->tenloaisp }}</option>
-                                                            }
+                                                            @elseif(!empty($data) && $data["id_loaisp"] == $value->id) 
+                                                                <option value="{{$value-> id}}" selected> {{ $value->tenloaisp }}</option>
                                                             @else
-                                                            {
                                                                 <option value="{{$value-> id}}"> {{ $value->tenloaisp }}</option>
-                                                            }
-                                                            @endif -->
-                                                    <option value="{{$value-> id}}"> {{ $value->tenloaisp }}</option>
-                                                    @endforeach
+                                                            @endif
+                                                            <!-- <option value="{{$value-> id}}"> {{ $value->tenloaisp }}</option> -->
+                                                        @endforeach
                                                     @endif
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Hình ảnh </label>
-                                                <input class="form-control" name="txtHinhAnh" type="file" required />
+                                                <label for="reg_input_name" class="req">Hình ảnh  <i class="required">{{!empty($sanpham) && $sanpham->id !=0 ? "" : "*"}}</i></label>
+                                                <input class="form-control" name="txtHinhAnh" type="file" {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Thư viện ảnh </label>
-                                                <input class="form-control" name="txtThuVienAnh[]" type="file" multiple required />
+                                                <label for="reg_input_name" class="req">Thư viện ảnh <i class="required">{{!empty($sanpham) && $sanpham->id !=0 ? "" : "*"}}</i></label>
+                                                <input class="form-control" name="txtThuVienAnh[]" type="file" multiple {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
                                             </div>
                                         </div>
 
                                         <div class="form-group">
 
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Số lượng </label>
-                                                <input class="form-control" value="{{ $sanpham->soluong }}" name="txtSoLuong" required />
+                                                <label for="reg_input_name" class="req">Số lượng <i class="required"> * </i></label>
+                                                <input class="form-control" type="number" value="{{ $sanpham->soluong }}" name="txtSoLuong" required />
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Giá bán </label>
-                                                <input class="form-control" value="{{ $sanpham->giaban }}" name="txtGiaBan" type="text" required />
+                                                <label for="reg_input_name" class="req">Giá bán <i class="required"> * </i></label>
+                                                <input class="form-control" type="number" value="{{ $sanpham->giaban }}" name="txtGiaBan" type="number" required />
                                             </div>
                                         </div>
 

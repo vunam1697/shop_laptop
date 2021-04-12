@@ -1,3 +1,7 @@
+<?php 
+    use App\Models\User;
+    $value = session()->get('login');
+?>
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
         <h3>Danh mục chung</h3>
@@ -20,19 +24,27 @@
                     <li><a href="thucthi/add-classify.php">Thêm </a></li>
                 </ul>
             </li>
-            <li>
+            <!-- <li>
                 <a><i class="fa fa-edit"></i>Quản lý tin tức <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
                     <li><a href="product/list_news.php">Danh sách tin tức </a></li>
                     <li><a href="thucthi/add_news.php">Thêm </a></li>
                 </ul>
-            </li>
+            </li> -->
             <li>
                 <a href="orders.php"><i class="fa fa-desktop"></i>Hóa Đơn </a>
             </li>
-            <li>
-                <a href="user.php"><i class="fa fa-desktop"></i>Quản lý người dùng </a>
-            </li>
+
+            @if($value->isAdmin==1)
+                <li>
+                    <a><i class="fa fa-desktop"></i>Quản lý người dùng  <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li><a href="{{route('user.index')}}">Danh sách sản phẩm </a></li>
+                        <li><a href="{{route('saveUser.index')}}"> Thêm </a></li>
+                    </ul>
+                </li>
+            @endif
+           
         </ul>
     </div>
 </div>

@@ -35,13 +35,33 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
     //home
     Route::get('/admin/home', 'HomeController@index')->name('home.index');
 
-    //sản phẩm
+    //danh sách sản phẩm
     Route::get('/admin/product', 'ProductController@index')->name('product.index');
 
+    //view thêm và sửa sản phẩm
     Route::get('/admin/save-product', 'ProductController@saveProduct')->name('saveProduct.index');
 
+    //Lưu sản phẩm
     Route::post('/admin/product', ['as' => 'admin.saveProduct', 'uses' => 'ProductController@save']);
 
+    //Lấy sản phẩm cần sửa
     Route::get('/admin/edit-product/{id}', 'ProductController@eidtProduct')->name('editProduct.index');
 
+    //Xóa sản phẩm
+    Route::post('/admin/deleteProduct', ['as' => 'admin.product.delete', 'uses' => 'ProductController@delete']);
+
+    //danh sách người dùng
+    Route::get('/admin/user', 'UserController@index')->name('user.index');
+
+    //view thêm và sửa sản phẩm
+    Route::get('/admin/save-user', 'UserController@saveUser')->name('saveUser.index');
+
+    //Lưu sản phẩm
+    Route::post('/admin/user', ['as' => 'admin.saveUser', 'uses' => 'UserController@save']);
+
+    //Lấy người dùng cần sửa
+    Route::get('/admin/edit-user/{id}', 'UserController@eidtUser')->name('editUser.index');
+
+    //Xóa người dùng
+    Route::post('/admin/deleteUser', ['as' => 'admin.user.delete', 'uses' => 'UserController@delete']);
 });

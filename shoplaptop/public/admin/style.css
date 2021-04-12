@@ -62,3 +62,9 @@ h2{
 	color: white;
 	background-color: #d9534f;
 }
+.required{
+	color: red;
+}
+.class-radio{
+	line-height: 125px;
+}

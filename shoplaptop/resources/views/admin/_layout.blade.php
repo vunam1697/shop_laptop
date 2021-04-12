@@ -1,7 +1,7 @@
 @if(!Session::has('login'))
-<script>
-    window.location.href = "{{url('/admin/index-login')}}";
-</script>
+    <script>
+        window.location.href = "{{url('/admin/index-login')}}";
+    </script>
 @endif
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -18,7 +18,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <div class="navbar nav_title" style="border: 0;">
-                        <a href="{{url('/admin/home')}}" class="site_title"><i class="fa fa-paw"></i><span> Admin</span></a>
+                        <a href="{{url('/admin/home')}}" class="site_title"><i class="fa fa-paw"></i><span> Quản trị web</span></a>
                     </div>
 
                     <div class="clearfix"></div>
