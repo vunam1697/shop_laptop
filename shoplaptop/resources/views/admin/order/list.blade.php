@@ -26,7 +26,7 @@
             @endif
 
             <div class="x_title">
-                <h2>Danh sách người dùng <small><a href="{{route('saveUser.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm người dùng</i></a></small></h2>
+                <h2>Danh sách đơn hàng <small><a href="{{route('saveUser.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm đơn hàng</i></a></small></h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
