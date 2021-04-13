@@ -19,6 +19,10 @@ Route::get('/san-pham', 'App\Http\Controllers\HomeController@getProduct')->name(
 
 Route::get('/san-pham/{slug}', 'App\Http\Controllers\HomeController@getProductDetail')->name('home.product-detail');
 
+Route::post('them-gio-hang', 'App\Http\Controllers\HomeController@postAddCart')->name('home.post-add-cart');
+
+Route::get('gio-hang', 'App\Http\Controllers\HomeController@getCart')->name('home.cart');
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 
     //đăng nhập admin

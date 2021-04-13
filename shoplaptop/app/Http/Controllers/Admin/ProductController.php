@@ -9,6 +9,7 @@ use App\Models\Sanpham;
 use App\Models\LoaiSp;
 use App\Models\SanPham_LoaiSp;
 use Exception;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -61,10 +62,11 @@ class ProductController extends Controller
             'mausac'  => $request->txtMauSac,
             'kichthuoc'  => $request->txtKichThuoc,
             'noidung'  => $request->txtNoiDung,
+            'slug' => Str::slug($request->txtTenSP, '-'),
         ];
         $sanpham = new Sanpham($sanphamNew); //Khởi tạo sản phẩm
         try {
-            //Kiểm tra tồn tại hình ảnh không.Nếu tồn tại lưu file vào folder public và ;ấy tên hình ảnh
+            //Kiểm tra tồn tại hình ảnh không.Nếu tồn tại lưu file vào folder public và lấy tên hình ảnh
             if ($request->hasFile('txtHinhAnh')) {
                 $attachment = request()->file('txtHinhAnh');
 
@@ -79,17 +81,17 @@ class ProductController extends Controller
                 $attachmentSize         = $attachment->getSize();
 
                 /** New attachment name, v - milliseconds */
-                $attachmentNewName = 'attachment-' . date('YmdHisv') . '-' . $attachmentExtension;
-                $sanphamNew['hinhanh'] = $attachmentNewName;
+                // $attachmentNewName = 'attachment-' . date('YmdHisv') . '.' . $attachmentExtension;
+                $sanphamNew['hinhanh'] = $attachmentName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                 $uploadPath = public_path() . '/image';
-                $attachment->move($uploadPath, $attachmentNewName);
+                $attachment->move($uploadPath, $attachmentName);
             }
 
             //Kiểm tra tồn tại hình ảnh không.Nếu tồn tại lưu file vào folder public và ấy tên hình ảnh
             $listImg = [];
-            if ($request->hasFile('txtHinhAnh')) {
+            if ($request->hasFile('txtThuVienAnh')) {
                 $attachments = request()->file('txtThuVienAnh');
 
                 foreach ($attachments as $key => $attachment) {
@@ -103,15 +105,14 @@ class ProductController extends Controller
                     $attachmentMimeType     = $attachment->getClientMimeType();
                     $attachmentName         = $attachment->getClientOriginalName();
                     $attachmentSize         = $attachment->getSize();
-                    $listImg[] = $attachmentName;
 
                     /** New attachment name, v - milliseconds */
-                    $attachmentNewName = 'attachment-' . date('YmdHisv') . '-' . $attachmentExtension;
-
+                    // $attachmentNewName = 'attachment-' . date('YmdHisv') . '.' . $attachmentExtension;
+                    $listImg[] = $attachmentName;
 
                     /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                     $uploadPath = public_path() . '/image';
-                    $attachment->move($uploadPath, $attachmentNewName);
+                    $attachment->move($uploadPath, $attachmentName);
                 }
                 $sanphamNew['thuvienanh'] = json_encode($listImg);
             }

@@ -113,20 +113,6 @@
 
 <a href="#" id="back-to-top" class=""><i class="fa fa-chevron-up"></i> </a>
 
-<div id="callnow" class="">
-    <div class="hotline-phone-ring-wrap">
-        <div class="hotline-phone-ring" id="call-now-1">
-            <div class="hotline-phone-ring-circle"></div>
-            <div class="hotline-phone-ring-circle-fill"></div>
-            <div class="hotline-phone-ring-img-circle">
-                <a href="tel:0931.294.294" class="pps-btn-img"> <img src="images/quick.png" alt="Gọi điện thoại" width="50" data-lazy-src="" data-pin-no-hover="true" class="lazyloaded" data-was-processed="true">
-                </a>
-            </div>
-        </div>
-        <div class="hotline-bar">
-            <a href="tel:0983260584"> <span class="text-hotline" id="call-now-1">0983.260.584</span> </a>
-        </div>
-    </div>
-</div>
+
 
 

@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('/web/css/jquery.mmenu.all.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/web/css/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('/web/css/responsive.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url('/web/css/toastr.min.css') }}">
     <script type="text/javascript" src="{{ url('/web/js/jquery.min.js') }}"></script>
 </head>
 <body>
@@ -33,5 +34,13 @@
     <script type="text/javascript" src="{{ url('/web/js/jquery.mmenu.all.js') }}"></script>
     <script type="text/javascript" src="{{ url('/web/js/slick.min.js') }}"></script>
     <script type="text/javascript" src="{{ url('/web/js/private.js') }}"></script>
+    <script type="text/javascript" src="{{ url('/web/js/toastr.min.js') }}"></script>
+
+    @yield('script')
+    @if(Session::has('message'))
+        <script type='text/javascript'>
+            toastr["{!! Session::get('level') !!}"]("{!! Session::get('message') !!}")
+        </script>
+    @endif
 </body>
 </html>

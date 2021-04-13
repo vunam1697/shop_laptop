@@ -35,9 +35,11 @@
                                     @foreach ($data as $item)
                                     <div class="col-md-4">
                                         <div class="product-item">
-                                            <a href="product-detail.php" title="" class="zoom"><img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt=""> </a>
+                                            <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}" class="zoom">
+                                                <img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="" width="250px" height="200px"> 
+                                            </a>
                                             <div class="product-text text-left">
-                                                <h4><a href="product-detail.php" title="">{{ $item->tensp }}</a> </h4>
+                                                <h4><a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}}" title="{{ $item->tensp }}">{{ $item->tensp }}</a> </h4>
                                                 <div class="price">Giá: {{ number_format($item->giaban, 0, '.', '.') }} VNĐ</div>
                                             </div>
                                         </div>
