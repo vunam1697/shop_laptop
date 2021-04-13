@@ -69,11 +69,32 @@
                                         <div class="form-group">
                                             <div class="col-md-6">
                                                 <label for="reg_input_name" class="req">Hình ảnh  <i class="required">{{!empty($sanpham) && $sanpham->id !=0 ? "" : "*"}}</i></label>
-                                                <input class="form-control" name="txtHinhAnh" type="file" {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
+                                                <input class="form-control" onchange="changeFile(this)" name="txtHinhAnh" type="file" {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="reg_input_name" class="req">Thư viện ảnh <i class="required">{{!empty($sanpham) && $sanpham->id !=0 ? "" : "*"}}</i></label>
-                                                <input class="form-control" name="txtThuVienAnh[]" type="file" multiple {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
+                                                <input class="form-control" onchange="changeListFile(this)" name="txtThuVienAnh[]" type="file" multiple {{!empty($sanpham) && $sanpham->id !=0 ? "" : "required"}} />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div id="row-img">
+                                                    @if(!empty($sanpham) && !empty($sanpham->hinhanh) && $sanpham->id !=0)
+                                                        <img src="{{url('/image')}}/{{$sanpham -> hinhanh}}" class="img-thumbnail row-image">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div id="list-img">
+                                                    @if(!empty($sanpham) && !empty($sanpham->thuvienanh) && $sanpham->id !=0)
+                                                        <?php
+                                                             $listImg=json_decode($sanpham->thuvienanh)
+                                                        ?>
+                                                        @foreach($listImg as $item)
+                                                            <img src="{{url('/image')}}/{{$item}}" class="img-thumbnail list-image">
+                                                        @endforeach
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
 
@@ -166,10 +187,5 @@
     </form>
 
 </div>
-
-<!-- <script>
-   CKEDITOR.replace('classNoiDung');
-
-</script> -->
 
 @stop

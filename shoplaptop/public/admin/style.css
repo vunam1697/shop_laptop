@@ -68,3 +68,16 @@ h2{
 .class-radio{
 	line-height: 125px;
 }
+#row-img img{
+	margin-left: 10px;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+}
+
+#list-img img{
+	margin-left: 10px;
+	width: 70px;
+	height: 70px;
+	margin-top: 10px;
+}

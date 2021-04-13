@@ -81,12 +81,12 @@ class ProductController extends Controller
                 $attachmentSize         = $attachment->getSize();
 
                 /** New attachment name, v - milliseconds */
-                // $attachmentNewName = 'attachment-' . date('YmdHisv') . '.' . $attachmentExtension;
-                $sanphamNew['hinhanh'] = $attachmentName;
+                $attachmentNewName = $attachmentName .'_'. date('YmdHisv') . '.' . $attachmentExtension;
+                $sanphamNew['hinhanh'] = $attachmentNewName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                 $uploadPath = public_path() . '/image';
-                $attachment->move($uploadPath, $attachmentName);
+                $attachment->move($uploadPath, $attachmentNewName);
             }
 
             //Kiểm tra tồn tại hình ảnh không.Nếu tồn tại lưu file vào folder public và ấy tên hình ảnh
@@ -107,12 +107,12 @@ class ProductController extends Controller
                     $attachmentSize         = $attachment->getSize();
 
                     /** New attachment name, v - milliseconds */
-                    // $attachmentNewName = 'attachment-' . date('YmdHisv') . '.' . $attachmentExtension;
-                    $listImg[] = $attachmentName;
+                    $attachmentNewName = $attachmentName .'-' . date('YmdHisv') . '.' . $attachmentExtension;
+                    $listImg[] = $attachmentNewName;
 
                     /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                     $uploadPath = public_path() . '/image';
-                    $attachment->move($uploadPath, $attachmentName);
+                    $attachment->move($uploadPath, $attachmentNewName);
                 }
                 $sanphamNew['thuvienanh'] = json_encode($listImg);
             }

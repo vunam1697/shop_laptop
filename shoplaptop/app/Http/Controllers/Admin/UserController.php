@@ -91,7 +91,7 @@ class UserController extends Controller
                 $attachmentSize         = $attachment->getSize();
 
                 /** New attachment name, v - milliseconds */
-                $attachmentNewName = 'attachment-' . date('YmdHisv') . '-' . $attachmentExtension;
+                $attachmentNewName = $attachmentName.'-' . date('YmdHisv') . '.' . $attachmentExtension;
                 $userNew['avatar'] = $attachmentNewName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */

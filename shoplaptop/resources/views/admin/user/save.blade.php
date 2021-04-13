@@ -67,7 +67,7 @@
                                         <div class="form-group">
                                             <div class="col-md-6">
                                                 <label for="reg_input_name" class="req">Hình ảnh </label>
-                                                <input class="form-control" name="avatar" type="file"  />
+                                                <input class="form-control" name="avatar" type="file"  onchange="changeFile(this)"/>
                                             </div>
                                             <div class="col-md-6">                                        
                                                <div class="class-radio">          
@@ -82,7 +82,16 @@
                                                </div>
                                             </div>
                                         </div>
-                                       
+                                        <div class="form-group">
+                                            <div class="col-md-6">
+                                                <div id="row-img">
+                                                    @if(!empty($user) && !empty($user->avatar) && $user->id !=0)
+                                                        <img src="{{url('/image')}}/{{$user -> avatar}}" class="img-thumbnail row-image">
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>

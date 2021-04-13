@@ -13,7 +13,7 @@
             <li>
                 <a><i class="fa fa-edit"></i>Quản lý sản phẩm <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="{{url('/admin/product')}}">Danh sách sản phẩm </a></li>
+                    <li><a href="{{url('/admin/product')}}">Danh sách </a></li>
                     <li><a href="{{route('saveProduct.index')}}"> Thêm </a></li>
                 </ul>
             </li>
@@ -39,7 +39,7 @@
                 <li>
                     <a><i class="fa fa-desktop"></i>Quản lý người dùng  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                        <li><a href="{{route('user.index')}}">Danh sách sản phẩm </a></li>
+                        <li><a href="{{route('user.index')}}">Danh sách  </a></li>
                         <li><a href="{{route('saveUser.index')}}"> Thêm </a></li>
                     </ul>
                 </li>
