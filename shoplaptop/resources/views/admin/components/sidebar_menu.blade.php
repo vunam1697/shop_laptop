@@ -32,7 +32,10 @@
                 </ul>
             </li> -->
             <li>
-                <a href="orders.php"><i class="fa fa-desktop"></i>Hóa Đơn </a>
+                <a><i class="fa fa-edit"></i>Quản lý đơn hàng <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="{{url('/admin/order')}}">Danh sách </a></li>
+                </ul>
             </li>
 
             @if($value->isAdmin==1)

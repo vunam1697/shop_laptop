@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateAddStatusOrderTable extends Migration
+class CreateTrangthaidonhangTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class UpdateAddStatusOrderTable extends Migration
      */
     public function up()
     {
-        Schema::table('donhang', function (Blueprint $table) {
-            $table->integer('status')->nullable();
+        Schema::create('trangthaidonhang', function (Blueprint $table) {
+            $table->id();
+            $table->string("tentrangthai");
+            $table->timestamps();
         });
     }
 
@@ -24,7 +26,7 @@ class UpdateAddStatusOrderTable extends Migration
      * @return void
      */
     public function down()
-    {   
-        schema::dropIfExists('status');
+    {
+        Schema::dropIfExists('trangthaidonhang');
     }
 }

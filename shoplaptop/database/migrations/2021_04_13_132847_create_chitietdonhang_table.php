@@ -20,7 +20,6 @@ class CreateChitietdonhangTable extends Migration
             $table->integer("giaban")->nullable();
             $table->integer("tongtien")->nullable();
             $table->integer("idsanpham")->nullable();
-
             $table->timestamps();
         });
     }
