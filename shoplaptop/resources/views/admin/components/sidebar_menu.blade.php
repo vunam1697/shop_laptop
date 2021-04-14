@@ -18,9 +18,9 @@
                 </ul>
             </li>
             <li>
-                <a><i class="fa fa-edit"></i>Quản lý danh mục <span class="fa fa-chevron-down"></span></a>
+                <a><i class="fa fa-edit"></i>Quản lý loại sản phẩm <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="product/classify-product.php">Danh sách danh mục sản phẩm </a></li>
+                    <li><a href="product/classify-product.php">Danh sách loại sản phẩm </a></li>
                     <li><a href="thucthi/add-classify.php">Thêm </a></li>
                 </ul>
             </li>
@@ -38,7 +38,7 @@
                 </ul>
             </li>
 
-            @if($value->isAdmin==1)
+            @if(!empty($value) && $value->isAdmin==1)
                 <li>
                     <a><i class="fa fa-desktop"></i>Quản lý người dùng  <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

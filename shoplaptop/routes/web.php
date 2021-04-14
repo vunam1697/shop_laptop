@@ -87,10 +87,22 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
      //Lưu đơn hàng
      Route::post('/admin/order', ['as' => 'admin.saveOrder', 'uses' => 'OrderController@save']);
 
-     //Lưu đơn hàng
-     Route::get('/admin/add-product-to-card/{id}',"OrderController@addProductToCard")->name('addProductToCard.index');
+     //Thêm sản phẩm vào session
+     Route::get('/admin/add-product-to-card/{id}/{type}/{iddonhang}',"OrderController@addProductToCard")->name('addProductToCard.index');
+
+     //Xóa sản phẩm khỏi session
+     Route::get('/admin/delete-product-from-card/{id}/{iddonhang}',"OrderController@deleteProductOnCart")->name('admin.order.deleteProductOnCart');
 
     //  Route::post('/admin/add-product-to-card',['as' => 'admin.addProductToCard', 'uses' => 'OrderController@addProductToCard']);
-      //Lưu tạm thông tin khách hàng vào session
-      Route::post('/admin/add-customer-to-session', ['as' => 'admin.addCustomerToSession', 'uses' => 'OrderController@addCustomerToSession']);
+    //Lưu tạm thông tin khách hàng vào session
+    Route::post('/admin/add-customer-to-session', ['as' => 'admin.addCustomerToSession', 'uses' => 'OrderController@addSessionCustomer']);
+
+    //Xóa đơn hàng
+    Route::post('/admin/deleteOrder', ['as' => 'admin.order.delete', 'uses' => 'OrderController@delete']);
+
+     //Lấy đơn hàng cần sửa
+     Route::get('/admin/edit-order/{id}', 'OrderController@editOrder')->name('admin.editOrder');
+
+      //Xem chi tiết đơn hàng
+      Route::get('/admin/detail-order/{id}', 'OrderController@detailOrder')->name('admin.viewDetail');
 });

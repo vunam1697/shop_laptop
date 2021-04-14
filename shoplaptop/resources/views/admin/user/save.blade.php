@@ -66,8 +66,8 @@
 
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <label for="reg_input_name" class="req">Hình ảnh </label>
-                                                <input class="form-control" name="avatar" type="file"  onchange="changeFile(this)"/>
+                                                <label for="reg_input_name" class="req">Hình ảnh <i class="required">{{!empty($user) && $user->id !=0 ? "" : "*"}}</i></label>
+                                                <input class="form-control" name="avatar" type="file"  onchange="changeFile(this)" {{!empty($user) && $user->id !=0 ? "" : "required"}}/>
                                             </div>
                                             <div class="col-md-6">                                        
                                                <div class="class-radio">          

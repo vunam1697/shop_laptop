@@ -32,7 +32,7 @@ class UserController extends Controller
         //khởi tạo mảng lưu dữ liệu được đẩy từ giao diện lên
         //gán dữ liệu thêm vào mảng user
         $userNew = [
-            'full_name' => $request->name,
+            'full_name' => $request->full_name,
             'email'  => $request->email,
             'name'  => $request->name,
             'password'  => $request->password,
@@ -61,6 +61,7 @@ class UserController extends Controller
             //Nếu là cập nhật
             else{
                  
+                $user=User::where('id',$request->id)->first();
                  //check xem user name tồn tại chưa
                  $userFillter=User::where('name',$request->name)->where('id', '!=', $request->id)->first();
                  if(!empty($userFillter)){
