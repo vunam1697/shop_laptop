@@ -15,21 +15,15 @@
                     <div class="cate-content">
                         <div class="product-list">
                             <div class="pro-title flex-center-between">
-                                <h1>sản phẩm</h1>
-                                <!-- <div class="sort flex-center-end">
-                                    <span>Sắp xếp:</span>
-                                    <div class="sidebar-dropdown">
-                                        <div class="current-select">Mới nhất</div>
-                                        <div class="dropdown-select">
-                                            <ul>
-                                                <li><a href="" title="">Cũ nhất</a></li>
-                                                <li><a href="" title="">Chiều cao từ thấp tới cao</a></li>
-                                                <li><a href="" title="">Tải trọng từ thấp tới cao</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                @if (!empty($slug))
+                                    <h1>{{ $category->tenloaisp }}</h1>
+                                @elseif (!empty($q))
+                                    <h1>Từ khóa tìm kiếm: {{ $q }}</h1>
+                                @else
+                                    <h1>sản phẩm</h1>
+                                @endif
                             </div>
+                            @if (count($data))
                             <div class="list-content">
                                 <div class="row">
                                     @foreach ($data as $item)
@@ -46,7 +40,15 @@
                                     </div>
                                     @endforeach
                                 </div>
+
+                                {{-- Phân trang --}}
+                                {{ $data->links('web.components.panigation') }}
                             </div>
+                            @else
+                            <div class="alert alert-success text-center" role="alert">
+                                Sản phẩm đang cập nhật
+                            </div>
+                            @endif
                         </div>
                     </div>
                 </div>

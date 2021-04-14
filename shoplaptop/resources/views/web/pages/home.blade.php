@@ -24,168 +24,30 @@
     </section> -->
     <section class="block-group pd-60">
         <div class="container">
-            <h2 class="title">sản phẩm nổi bật {{ @$site_info }}</h2>
+            <h2 class="title">sản phẩm</h2>
             <div class="product-slider">
-                <div class="col-md-12">
-                    <div class="product-item">
-                        <a href="product-detail.php" title="" class="zoom"><img src="images/sp-1.png" alt=""> </a>
-                        <div class="product-text">
-                            <h4><a href="product-detail.php" title="">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                            <div class="price">Giá: 3.000.000 VNĐ</div>
+                @foreach ($data as $item)
+                    <div class="col-md-12">
+                        <div class="product-item">
+                            <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}" class="zoom">
+                                <img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="{{ $item->tenssp }}"> </a>
+                            <div class="product-text">
+                                <h4>
+                                    <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}">{{ $item->tensp }}</a> 
+                                </h4>
+                                <div class="price">Giá: {{ number_format($item->giaban, '0', '.', '.') }} VNĐ</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="product-item">
-                        <a href="product-detail.php" title="" class="zoom"><img src="images/sp-2.png" alt=""> </a>
-                        <div class="product-text">
-                            <h4><a href="product-detail.php" title="">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                            <div class="price">Giá: 3.000.000 VNĐ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="product-item">
-                        <a href="product-detail.php" title="" class="zoom"><img src="images/sp-3.png" alt=""> </a>
-                        <div class="product-text">
-                            <h4><a href="product-detail.php" title="">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                            <div class="price">Giá: 3.000.000 VNĐ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="product-item">
-                        <a href="product-detail.php" title="" class="zoom"><img src="images/sp-4.png" alt=""> </a>
-                        <div class="product-text">
-                            <h4><a href="product-detail.php" title="">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                            <div class="price">Giá: 3.000.000 VNĐ</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="product-item">
-                        <a href="product-detail.php" title="" class="zoom"><img src="images/sp-1.png" alt=""> </a>
-                        <div class="product-text">
-                            <h4><a href="product-detail.php" title="">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                            <div class="price">Giá: 3.000.000 VNĐ</div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
-            <div class="text-center mgt-50"><a href="product-list.php" title="" class="view-mores inflex-center-center">Xem tất cả</a> </div>
-        </div>
-    </section>
-    <section class="service-index">
-        <div class="container">
-            <h2 class="title title-white">Dịch vụ</h2>
-            <div class="service-slider">
-                <div class="col-md-12">
-                    <div class="ser-item">
-                        <a href="service-detail.php" title="" class="ser-image zoom"><img src="images/dv-1.png" alt=""> </a>
-                        <h4><a href="service-detail.php" title="">cho thuê Máy công trình</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ser-item">
-                        <a href="service-detail.php" title="" class="ser-image zoom"><img src="images/dv-2.png" alt=""> </a>
-                        <h4><a href="service-detail.php" title="">cho thuê Máy công trình</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ser-item">
-                        <a href="service-detail.php" title="" class="ser-image zoom"><img src="images/dv-3.png" alt=""> </a>
-                        <h4><a href="service-detail.php" title="">cho thuê Máy công trình</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ser-item">
-                        <a href="service-detail.php" title="" class="ser-image zoom"><img src="images/dv-4.png" alt=""> </a>
-                        <h4><a href="service-detail.php" title="">cho thuê Máy công trình</a></h4>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <div class="ser-item">
-                        <a href="service-detail.php" title="" class="ser-image zoom"><img src="images/dv-2.png" alt=""> </a>
-                        <h4><a href="service-detail.php" title="">cho thuê Máy công trình</a></h4>
-                    </div>
-                </div>
+            <div class="text-center mgt-50">
+                <a href="{{ route('home.product') }}" title="xem tất cả" class="view-mores inflex-center-center">Xem tất cả</a> 
             </div>
         </div>
     </section>
-    <section class="why-choose pd-60">
-        <div class="container">
-            <h2 class="title">Vì sao chọn chúng tôi</h2>
-            <div class="row">
-                <div class="col-md-3">
-                    <div class="why-item">
-                        <div class="why-image">
-                            <span class="inflex-center-center"><img src="images/vs1.png" title=""> </span>
-                        </div>
-                        <h4>Uy tín, chất lượng</h4>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="why-item">
-                        <div class="why-image">
-                            <span class="inflex-center-center"><img src="images/vs2.png" title=""> </span>
-                        </div>
-                        <h4>Phục vụ 24/24</h4>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="why-item">
-                        <div class="why-image">
-                            <span class="inflex-center-center"><img src="images/vs3.png" title=""> </span>
-                        </div>
-                        <h4>Nhiều ưu đãi</h4>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived </p>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <div class="why-item">
-                        <div class="why-image">
-                            <span class="inflex-center-center"><img src="images/vs4.png" title=""> </span>
-                        </div>
-                        <h4>Uy tín, chất lượng</h4>
-                        <p>when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="project-index">
-        <div class="container">
-            <h2 class="title">Dự án của chúng tôi</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="pjs-item">
-                        <a href="project-detail.php" title="" class="zoom"><img src="images/pj-1.png" alt=""> </a>
-                        <div class="pj-name">Dự án khu biệt thự liền kề vinhome</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="pjs-item">
-                        <a href="project-detail.php" title="" class="zoom"><img src="images/pj-2.png" alt=""> </a>
-                        <div class="pj-name">Dự án khu biệt thự liền kề vinhome</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="pjs-item">
-                        <a href="project-detail.php" title="" class="zoom"><img src="images/pj3.png" alt=""> </a>
-                        <div class="pj-name">Dự án khu biệt thự liền kề vinhome</div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="pjs-item">
-                        <a href="project-detail.php" title="" class="zoom"><img src="images/pj-4.png" alt=""> </a>
-                        <div class="pj-name">Dự án khu biệt thự liền kề vinhome</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+    
     <section class="news-index pd-60">
         <div class="container">
             <h2 class="title">Tin tức nổi bật</h2>
@@ -253,17 +115,5 @@
             </div>
         </div>
     </section>
-    <section class="partner pd-60">
-        <div class="container">
-            <h2 class="title">ĐỐi tác của chúng tôi</h2>
-            <div class="partner-slider">
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client1.png" alt="" title=""> </a></div>
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client2.png" alt="" title=""> </a></div>
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client8.png" alt="" title=""> </a></div>
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client7.png" alt="" title=""> </a></div>
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client5.png" alt="" title=""> </a></div>
-                <div class="part-item"><a href="" title="" class="zoom-2"><img src="images/client2.png" alt="" title=""> </a></div>
-            </div>
-        </div>
-    </section>
+    
 @stop

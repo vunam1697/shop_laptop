@@ -1,5 +1,5 @@
 <header>
-    <section class="header-top">
+    {{-- <section class="header-top">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 visible-desktop">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
     <section class="header-main">
         <div class="container">
             <div class="row">
@@ -34,81 +34,42 @@
                     <div class="visible-mobile btn-showSearch"><i class="fa fa-search"></i> </div>
                     <a title="" href="#menu" class="btn-menu visible-mobile"><img src="images/bar.png" class="img-fluid" alt=""></a>
                 </div>
-                <div class="col-md-8 flex-center-center">
+                <div class="col-md-6 flex-center-center">
                     <div class="header-nav">
                         <ul class="flex-center-center">
-                            <li><a href="index.php" title="">Trang chủ</a> </li>
-                            <li><a href="about-us.php" title="">Giới thiệu</a> </li>
+                            <li><a href="{{ url('/') }}" title="trang chủ">Trang chủ</a> </li>
                             <li>
-                                <a href="" title="">Sản phẩm</a>
+                                <a href="{{ route('home.product') }}" title="Sản phẩm">Sản Phẩm</a> 
+                                @if (count($categories))
                                 <ul class="sub-menu">
-                                    <li class="item-has-children">
-                                        <a href="product-cate.php" title="">Thiết bị nâng hạ</a>
-                                        <ul>
-                                            <li><a href="product-list.php" title="">Cẩu xích</a> </li>
-                                            <li><a href="product-list.php" title="">Cẩu lốp</a> </li>
-                                            <li><a href="product-list.php" title="">Xe công trình</a> </li>
-                                        </ul>
+                                    @foreach ($categories as $item)
+                                    <li>
+                                        <a href="{{ route('home.product-category', ['slug' => $item->slug]) }}" title="{{ $item->tenloaisp }}">{{ $item->tenloaisp }}</a>
                                     </li>
-                                    <li><a href="product-list.php" title="">Thiết bị nền móng</a> </li>
-                                    <li><a href="product-list.php" title="">Xe công trình</a> </li>
-                                    <li><a href="product-list.php" title="">Xe nâng người</a> </li>
-                                    <li><a href="product-list.php" title="">Phụ tùng</a> </li>
+                                    @endforeach
                                 </ul>
+                                @endif
                             </li>
-                            <li><a href="service.php" title="">Dịch vụ</a> </li>
-                            <li><a href="project.php" title="">Dự án</a> </li>
-                            <li><a href="news.php" title="">Tin tức</a> </li>
-                            <li><a href="contact.php" title="">Liên hệ</a> </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-2 search-mb">
+                <div class="col-md-3 search-mb">
                     <div class="search flex-center-center height-100">
-                        <form class="flex-center-center">
-                            <input type="text" placeholder="Tìm kiếm ...">
+                        <form class="flex-center-center" action="{{ route('home.search') }}" method="GET">
+                            <input type="text" placeholder="Tìm kiếm ..." name="q" value="{{ request()->get('q') }}">
                             <button type="submit"><i  class="fa fa-search"></i></button>
                         </form>
                     </div>
                 </div>
+                <div class="col-md-1 cart-mini">
+                    <a href="{{ route('home.cart') }}">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="number">
+                            {{ isset($_SESSION['cart']) ? count($_SESSION["cart"]) : 0 }}
+                        </span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
-    <section class="header-hotline">
-        <div class="container">
-            <div class="hotline flex-center-end">
-                <span>Hotline: </span>
-                <a href="" title="">0704.646.517</a>
-                <i>-</i>
-                <a href="" title="">0983.260.584</a>
-            </div>
-        </div>
-    </section>
-    <nav id="menu">
-        <ul>
-            <li><a href="index.php" title="">Trang chủ</a> </li>
-            <li><a href="about-us.php" title="">Giới thiệu</a> </li>
-            <li>
-                <a href="" title="">Sản phẩm</a>
-                <ul class="sub-menu">
-                    <li class="item-has-children">
-                        <a href="product-cate.php" title="">Thiết bị nâng hạ</a>
-                        <ul>
-                            <li><a href="product-list.php" title="">Cẩu xích</a> </li>
-                            <li><a href="product-list.php" title="">Cẩu lốp</a> </li>
-                            <li><a href="product-list.php" title="">Xe công trình</a> </li>
-                        </ul>
-                    </li>
-                    <li><a href="product-list.php" title="">Thiết bị nền móng</a> </li>
-                    <li><a href="product-list.php" title="">Xe công trình</a> </li>
-                    <li><a href="product-list.php" title="">Xe nâng người</a> </li>
-                    <li><a href="product-list.php" title="">Phụ tùng</a> </li>
-                </ul>
-            </li>
-            <li><a href="service.php" title="">Dịch vụ</a> </li>
-            <li><a href="project.php" title="">Dự án</a> </li>
-            <li><a href="news.php" title="">Tin tức</a> </li>
-            <li><a href="contact.php" title="">Liên hệ</a> </li>
-        </ul>
-    </nav>
 </header>

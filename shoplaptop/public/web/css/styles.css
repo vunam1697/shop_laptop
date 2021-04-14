@@ -62,6 +62,28 @@
     padding: 5px 0
 }
 
+.header-main .cart-mini a {
+    font-size: 24px;
+    padding-top: 8px;
+    position: relative;
+}
+
+.header-main .cart-mini a .number {
+    width: 20px;
+    height: 20px;
+    background-color: #ff0000;
+    display: inline-block;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    position: absolute;
+    top: 7px;
+    right: -15px;
+}
+
 .header-nav {
     padding-top: 15px;
 }
@@ -1357,13 +1379,14 @@
     top: 16px;
 }
 
-.cate-cap:after {
+
+/* .cate-cap:after {
     content: "\f067";
     font: normal normal normal 14px/1 FontAwesome;
     position: absolute;
     right: 0;
     top: 19px;
-}
+} */
 
 .cate-cap:hover,
 .cate-cap.active {
@@ -2083,7 +2106,7 @@
 
 .art-address .address-box,
 .art-address .contacts-box {
-    padding: 0 160px;
+    padding: 0 100px;
 }
 
 .art-address .title {
@@ -2113,7 +2136,7 @@
 }
 
 .carts-box table tr {
-    border-bottom: 1px solid #ebebed;
+    border-bottom: 1px solid #666;
 }
 
 .carts-box table tr:last-child {
@@ -2121,7 +2144,7 @@
 }
 
 .carts-box table .title-table {
-    border-bottom-width: 4px;
+    /* border-bottom-width: 4px; */
     border-bottom-color: #ebebed;
 }
 
@@ -2132,6 +2155,7 @@
     display: block;
     font-size: 16px;
     color: #333;
+    padding-top: 35px;
 }
 
 .carts-box .product-box {
@@ -2196,7 +2220,7 @@
 
 .art-orders,
 .art-carts {
-    padding: 0;
+    padding: 25px 0;
 }
 
 .art-carts .contacts-box .title-carts .title {
@@ -2215,14 +2239,16 @@
     color: #333;
 }
 
-.art-orders .contacts-box {
+
+/* .art-orders .contacts-box {
     padding: 0 15px;
-}
+} */
 
 .art-orders .contact-box .form-group {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+    flex-wrap: wrap;
 }
 
 .art-orders .contact-box .form-group:last-child {
@@ -2249,4 +2275,27 @@
 
 .art-orders .pays-box {
     padding: 0 15px;
+}
+
+.art-orders .contact-box .form-content .form-control {
+    width: calc(100% - 110px);
+}
+
+.btn {
+    background-color: #4cb7ff;
+    border: 1px solid #4cb7ff;
+    color: #fff;
+    line-height: 1.5;
+    transition: all 400ms;
+    white-space: normal;
+    display: inline-block;
+}
+
+.button a:hover {
+    color: #4cb7ff;
+}
+
+.help-block {
+    margin-left: 110px;
+    color: #ff0000;
 }

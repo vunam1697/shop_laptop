@@ -156,49 +156,27 @@
 			</div>
 		</div>
 	</section>
+    @if (count($product_same_category))
     <section class="pro-related">
         <div class="container">
             <h2 class="title font-30">sản phẩm liên quan</h2>
             <div class="pro-related-box">
                 <div class="row">
+                    @foreach ($product_same_category as $item)
                     <div class="col-md-3">
                         <div class="product-item">
-                            <a href="" title="" class="zoom"><img src="images/sp-1.png" alt=""> </a>
+                            <a href="{{ route('home.product-detail', ['slug' => $slug]) }}" 
+                                title="{{ $item->tensp }}" class="zoom"><img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="{{ $item->tensp }}"> </a>
                             <div class="product-text">
-                                <h4><a href="" title="" class="text-left">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                                <div class="price text-left">Giá: 3.000.000 VNĐ</div>
+                                <h4><a href="{{ route('home.product-detail', ['slug' => $slug]) }}" title="{{ $item->tensp }}" class="text-left">{{ $item->tensp }}</a> </h4>
+                                <div class="price text-left">Giá: {{ number_format($item->giaban, '0', '.', '.') }} VNĐ</div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <a href="" title="" class="zoom"><img src="images/sp-2.png" alt=""> </a>
-                            <div class="product-text">
-                                <h4><a href="" title="" class="text-left">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                                <div class="price text-left">Giá: 3.000.000 VNĐ</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <a href="" title="" class="zoom"><img src="images/sp-3.png" alt=""> </a>
-                            <div class="product-text">
-                                <h4><a href="" title="" class="text-left">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                                <div class="price text-left">Giá: 3.000.000 VNĐ</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="product-item">
-                            <a href="" title="" class="zoom"><img src="images/sp-4.png" alt=""> </a>
-                            <div class="product-text">
-                                <h4><a href="" title="" class="text-left">Bán và cho thuê cẩu xích 50 tấn IHI CCH500 đời 2000</a> </h4>
-                                <div class="price text-left">Giá: 3.000.000 VNĐ</div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </section>
+    @endif
 @stop

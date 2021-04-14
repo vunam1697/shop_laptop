@@ -15,8 +15,7 @@ $(document).ready(function() {
         slidesToShow: 4,
         slidesToScroll: 1,
         infinite: true,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -51,8 +50,7 @@ $(document).ready(function() {
         slidesToShow: 4,
         slidesToScroll: 1,
         infinite: true,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -88,8 +86,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         infinite: true,
         dots: true,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -121,8 +118,7 @@ $(document).ready(function() {
         slidesToScroll: 1,
         infinite: true,
         dots: true,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -148,16 +144,16 @@ $(document).ready(function() {
         ],
     });
 
-    $('.current-select').click(function () {
+    $('.current-select').click(function() {
         $(this).closest('.sidebar-dropdown').siblings().find('.dropdown-select').hide();
         $(this).next('.dropdown-select').slideToggle(400)
     });
-    $('.dropdown-select a').click(function (e) {
+    $('.dropdown-select a').click(function(e) {
         e.preventDefault();
         $(this).closest('.sidebar-dropdown').find('.current-select').html($(this).text());
         $(this).closest('.dropdown-select').slideToggle(300)
     })
-    $('.cate-cap').click(function () {
+    $('.cate-cap').click(function() {
         $(this).toggleClass('active')
         $(this).closest('.cate-item').siblings().find('.cate-dropdown').hide();
         $(this).closest('.cate-item').siblings().find('.cate-cap').removeClass('active');
@@ -174,12 +170,11 @@ $(document).ready(function() {
     });
 
     $('.slider-nav').slick({
-        autoplay:true,
-        arrow:true,
+        autoplay: true,
+        arrow: true,
         slidesToShow: 3,
         slidesToScroll: 1,
-        responsive: [
-            {
+        responsive: [{
                 breakpoint: 1024,
                 settings: {
                     slidesToShow: 3,
@@ -217,40 +212,83 @@ $(document).ready(function() {
         "counters": true
     });
 
-    $('.btn-showSearch').click(function () {
+    $('.btn-showSearch').click(function() {
         $('.search-mb').toggleClass('show')
     })
 
-    $('#btn-st-2').click(function () {
+    $('#btn-st-2').click(function() {
         $(this).addClass('store-main');
         $('#btn-st-1').removeClass('store-main');
         $('#store-map-1').removeClass('active');
         $('#store-map-2').addClass('active')
     })
-    $('#btn-st-1').click(function () {
+    $('#btn-st-1').click(function() {
         $(this).addClass('store-main');
         $('#btn-st-2').removeClass('store-main');
         $('#store-map-2').removeClass('active');
         $('#store-map-1').addClass('active')
     })
 
-    
-    $('.popups').click(function(event){
+
+    $('.popups').click(function(event) {
         $('.popups').removeClass('active');
     });
-    $('.popup-box .content').click(function(e){
+    $('.popup-box .content').click(function(e) {
         e.stopPropagation();
     });
 
-    $('.product-option .action').click(function(event){
+    $('.product-option .action').click(function(event) {
         event.preventDefault();
         var hw = $(window).height();
         var hwpu = $('.popup-box').height();
 
-        if(hwpu > hw) {
-            $('.popups').css({'overflow-y':'auto', 'align-items':'flex-start', 'padding-top':'5px'});
+        if (hwpu > hw) {
+            $('.popups').css({ 'overflow-y': 'auto', 'align-items': 'flex-start', 'padding-top': '5px' });
         }
 
         $('.popups-order').addClass('active');
     });
 })
+
+function updateItem(id) {
+    var sl = $('#soluong_' + id).val();
+    $.ajax({
+        type: 'GET',
+        url: urlUpdateItem,
+        data: {
+            id: id,
+            sl: sl
+        },
+        success: function(data) {
+            if (data.error) {
+                alert(data.error);
+                location.reload();
+            }
+            if (data.success) {
+                alert(data.success);
+                location.reload();
+            }
+        }
+    })
+}
+
+function deleteItem(id) {
+    $.ajax({
+        type: 'GET',
+        url: urlUpdateItem,
+        data: {
+            id: id,
+            action: "delete"
+        },
+        success: function(data) {
+            if (data.error) {
+                alert(data.error);
+                location.reload();
+            }
+            if (data.success) {
+                alert(data.success);
+                location.reload();
+            }
+        }
+    })
+}

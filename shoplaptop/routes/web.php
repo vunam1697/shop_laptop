@@ -15,13 +15,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'App\Http\Controllers\HomeController@getHome')->name('home.index');
 
+Route::get('/tim-kiem', 'App\Http\Controllers\HomeController@getSearch')->name('home.search');
+
 Route::get('/san-pham', 'App\Http\Controllers\HomeController@getProduct')->name('home.product');
 
 Route::get('/san-pham/{slug}', 'App\Http\Controllers\HomeController@getProductDetail')->name('home.product-detail');
 
+Route::get('/danh-muc-san-pham/{slug}', 'App\Http\Controllers\HomeController@getProductCategory')->name('home.product-category');
+
 Route::post('them-gio-hang', 'App\Http\Controllers\HomeController@postAddCart')->name('home.post-add-cart');
 
 Route::get('gio-hang', 'App\Http\Controllers\HomeController@getCart')->name('home.cart');
+
+Route::get('cap-nhat-gio-hang', 'App\Http\Controllers\HomeController@updateCart')->name('home.update-cart');
+
+Route::post('dat-hang', 'App\Http\Controllers\HomeController@postCheckOut')->name('home.post-check-out');
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 

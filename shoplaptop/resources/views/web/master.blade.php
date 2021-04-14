@@ -37,6 +37,7 @@
     <script type="text/javascript" src="{{ url('/web/js/toastr.min.js') }}"></script>
 
     @yield('script')
+    
     @if(Session::has('message'))
         <script type='text/javascript'>
             toastr["{!! Session::get('level') !!}"]("{!! Session::get('message') !!}")
