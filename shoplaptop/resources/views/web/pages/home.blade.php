@@ -14,7 +14,7 @@
                     <div class="col-md-12">
                         <div class="product-item">
                             <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}" class="zoom">
-                                <img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="{{ $item->tenssp }}"> </a>
+                                <img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="{{ $item->tenssp }}" width="250" height="250"> </a>
                             <div class="product-text">
                                 <h4>
                                     <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}">{{ $item->tensp }}</a> 

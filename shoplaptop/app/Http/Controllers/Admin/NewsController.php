@@ -56,11 +56,11 @@ class NewsController extends Controller
 
                 /** New attachment name, v - milliseconds */
                 $attachmentNewName = date('YmdHisv') . '_' . $attachmentName;
-                $tintucNew['hinhanh'] = $attachmentName;
+                $tintucNew['hinhanh'] = $attachmentNewName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                 $uploadPath = public_path() . '/image/news';
-                $attachment->move($uploadPath, $attachmentName);
+                $attachment->move($uploadPath, $attachmentNewName);
             }
             
             //lưu sản phẩm

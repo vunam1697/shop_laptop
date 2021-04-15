@@ -124,4 +124,20 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
 
     //Xóa tin tức
     Route::post('/admin/deleteNews', ['as' => 'admin.news.delete', 'uses' => 'NewsController@delete']);
+
+    //danh sách loại sản phẩm
+
+    Route::get('/admin/category', 'CategoryController@index')->name('category.index');
+
+    //view thêm và sửa loại sản phẩm
+    Route::get('/admin/save-category', 'CategoryController@saveCategory')->name('saveCategory.index');
+
+    //Lưu sản phẩm
+    Route::post('/admin/category', ['as' => 'admin.saveCategory', 'uses' => 'CategoryController@save']);
+
+     //Lấy người dùng cần sửa
+     Route::get('/admin/edit-category/{id}', 'CategoryController@editCategory')->name('editCategory.index');
+
+     //Xóa người dùng
+     Route::post('/admin/deleteCategory', ['as' => 'admin.category.delete', 'uses' => 'CategoryController@delete']);
 });

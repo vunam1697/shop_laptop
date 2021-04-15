@@ -74,7 +74,7 @@
 						    <a class="nav-link" id="specification-tab" data-toggle="tab" href="#specification" role="tab" aria-controls="specification" aria-selected="false">THÔNG SỐ KỸ THUẬT</a>
 						  </li>
 						</ul>
-						<div class="tab-content" id="navTabContent">
+						<div class="tab-content" id="navTabContent" style="width:800px">
 						  <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
 						  	<div class="tab-detail">
 						  		{!! $data->noidung !!}

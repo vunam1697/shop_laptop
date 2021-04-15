@@ -18,7 +18,7 @@
     <section class="project-list">
         <div class="container">
             <h1 class="d-none">hidden</h1>
-            <div class="row">
+            <div class="row" style="width: 800px;">
                 <div class="col-md-12 padd-large">
                     <h2 class="pjdetail-title">{{ $data->tentt }}</h2>
                     <p class="amblog-date">Tin tức  —  {{ $data->created_at->format('d/m/Y') }}</p>

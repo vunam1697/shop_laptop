@@ -1,3 +1,5 @@
+<?php session_start()?>
+
 <header>
     {{-- <section class="header-top">
         <div class="container">

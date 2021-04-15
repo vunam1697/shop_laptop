@@ -20,8 +20,8 @@
             <li>
                 <a><i class="fa fa-edit"></i>Quản lý loại sản phẩm <span class="fa fa-chevron-down"></span></a>
                 <ul class="nav child_menu">
-                    <li><a href="product/classify-product.php">Danh sách loại sản phẩm </a></li>
-                    <li><a href="thucthi/add-classify.php">Thêm </a></li>
+                    <li><a href="{{route('category.index')}}">Danh sách loại sản phẩm </a></li>
+                    <li><a href="{{route('saveCategory.index')}}">Thêm </a></li>
                 </ul>
             </li>
             <!-- <li>

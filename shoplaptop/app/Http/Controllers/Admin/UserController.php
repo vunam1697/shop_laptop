@@ -92,7 +92,7 @@ class UserController extends Controller
                 $attachmentSize         = $attachment->getSize();
 
                 /** New attachment name, v - milliseconds */
-                $attachmentNewName = $attachmentName.'-' . date('YmdHisv') . '.' . $attachmentExtension;
+                $attachmentNewName = date('YmdHisv') .'-'. $attachmentName;
                 $userNew['avatar'] = $attachmentNewName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
@@ -138,7 +138,7 @@ class UserController extends Controller
             $success = true;
             $message = "Xóa người dùng thành công";
         } catch (Exception $ex) {
-            $success = true;
+            $success = false;
             $message = $ex->getMessage();
         }
         return view('admin.user.list', compact('datas', 'success', 'message'));
