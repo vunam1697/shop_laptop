@@ -23,6 +23,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $datas = Sanpham::orderBy('created_at', 'DESC')->get(); //Lấy tất cả sản phẩm từ db
+        // dd($datas);
         return view('admin.product.list', compact('datas'));
     }
 
@@ -46,6 +47,7 @@ class ProductController extends Controller
         $data = [
             'id_loaisp' => $request->txtLoaiSP
         ];
+        // dd($data);
         //gán dữ liệu thêm vào bảng sản phẩm
         $sanphamNew = [
             'tensp' => $request->txtTenSP,
@@ -82,11 +84,11 @@ class ProductController extends Controller
 
                 /** New attachment name, v - milliseconds */
                 $attachmentNewName = $attachmentName .'_'. date('YmdHisv') . '.' . $attachmentExtension;
-                $sanphamNew['hinhanh'] = $attachmentNewName;
+                $sanphamNew['hinhanh'] = $attachmentName;
 
                 /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                 $uploadPath = public_path() . '/image';
-                $attachment->move($uploadPath, $attachmentNewName);
+                $attachment->move($uploadPath, $attachmentName);
             }
 
             //Kiểm tra tồn tại hình ảnh không.Nếu tồn tại lưu file vào folder public và ấy tên hình ảnh
@@ -108,11 +110,11 @@ class ProductController extends Controller
 
                     /** New attachment name, v - milliseconds */
                     $attachmentNewName = $attachmentName .'-' . date('YmdHisv') . '.' . $attachmentExtension;
-                    $listImg[] = $attachmentNewName;
+                    $listImg[] = $attachmentName;
 
                     /** Instead of storage I will demo you storing in PUBLIC path same as that of assets folder */
                     $uploadPath = public_path() . '/image';
-                    $attachment->move($uploadPath, $attachmentNewName);
+                    $attachment->move($uploadPath, $attachmentName);
                 }
                 $sanphamNew['thuvienanh'] = json_encode($listImg);
             }
@@ -127,6 +129,7 @@ class ProductController extends Controller
                 //mappe sản phẩm với loại sản phẩm
                 $sanPhamLoaiSP = new SanPham_LoaiSp();;
                 $data["id_sanpham"] = $saveSP->id;
+                // dd($data);
                 SanPham_LoaiSp::create($data);
                 $message = "Thêm thành công";
             }

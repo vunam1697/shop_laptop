@@ -37,6 +37,13 @@
                     <li><a href="{{url('/admin/order')}}">Danh sách </a></li>
                 </ul>
             </li>
+            <li>
+                <a><i class="fa fa-edit"></i>Quản lý tin tức <span class="fa fa-chevron-down"></span></a>
+                <ul class="nav child_menu">
+                    <li><a href="{{url('/admin/news')}}">Danh sách </a></li>
+                    <li><a href="{{route('saveNews.index')}}"> Thêm </a></li>
+                </ul>
+            </li>
 
             @if(!empty($value) && $value->isAdmin==1)
                 <li>

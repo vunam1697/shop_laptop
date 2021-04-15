@@ -8,10 +8,10 @@
     <section class="product-cate pd-60">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     @include('web.components.category')
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <div class="cate-content">
                         <div class="product-list">
                             <div class="pro-title flex-center-between">

@@ -26,7 +26,7 @@
             @endif
 
             <div class="x_title">
-                <h2>Danh sách sản phẩm <small><a href="{{route('saveProduct.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm sản phẩm</i></a></small></h2>
+                <h2>Danh sách tin tức <small><a href="{{route('saveNews.index')}}" class="btn btn-info"><i class="fa fa-plus"> Thêm tin tức</i></a></small></h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
@@ -34,39 +34,28 @@
                     <table id="myTable" class="display">
                         <thead>
                             <tr>
-                                <th>Tên sản phẩm </th>
-                                <th>Loại sản phẩm </th>
+                                <th>Tên tin tức </th>
                                 <th>Hình ảnh</th>
-                                <th>Số lượng</th>
-                                <th>Giá bán</th>
                                 <th>Ngày tạo</th>
                                 <th>Chức năng</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($datas as $key => $value)
+                            @foreach($data as $key => $value)
                             <tr>
                                 <td>
-                                    <span>{{$value -> tensp}}</span>
+                                    <span>{{$value -> tentt}}</span>
                                 </td>
                                 <td>
-                                    <span>{{$value-> Loaisp()->first() -> tenloaisp}}</span>
-                                </td>
-                                <td>
-                                    <img src="{{url('/image')}}/{{$value -> hinhanh}}" width="100" />
-                                </td>
-                                <td>
-                                    <span>{{$value -> soluong}}</span>
-                                </td>
-                                <td>
-                                    <span><?php echo number_format($value->giaban) ?> </span>
+                                    <img src="{{url('/image/news')}}/{{$value -> hinhanh}}" width="100" />
                                 </td>
                                 <td>
                                     <span>{{$value -> created_at}} </span>
                                 </td>
                                 <td>
-                                    <a href="{{route('editProduct.index', ['id'=> $value -> id ])}}" title="Cập nhật"><button  type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> </button></a>
-                                    <button title="Xóa" onclick="deleteSanPham('{{$value -> id}}')" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i> </button>                                    <!-- <button type="button" class="btn btn-info"><i class="fa fa-eye"></i> Chi tiết</button> -->
+                                    <a href="{{route('eidtNews.index', ['id'=> $value -> id ])}}" title="Cập nhật"><button  type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> </button></a>
+                                    <button title="Xóa" onclick="deleteTinTuc('{{$value -> id}}')" class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal"><i class="fa fa-trash"></i> </button>                                    
+                                    <!-- <button type="button" class="btn btn-info"><i class="fa fa-eye"></i> Chi tiết</button> -->
                                 </td>
                             </tr>
                             @endforeach
@@ -83,11 +72,11 @@
     <div class="modal-dialog">
       <!-- Modal content-->
       <div class="modal-content">
-        <form method="post" action="{{route('admin.product.delete')}}">
+        <form method="post" action="{{route('admin.news.delete')}}">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Bạn có chắc chắn muốn thực hiện chức năng này.</h4>
-                <input type="hidden" name="id" id="idSanPham">
+                <input type="hidden" name="id" id="idTintuc">
                 <input type="hidden" name="_token" value="{!! csrf_token() !!}" id="token">
             </div>
             <div class="modal-footer">
@@ -101,7 +90,7 @@
 @stop
 
 <script>
-   function deleteSanPham(id){
-            $('#idSanPham').val(id);
-        }
+   function deleteTinTuc(id){
+        $('#idTintuc').val(id);
+    }
 </script>

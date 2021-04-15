@@ -50,6 +50,7 @@
                                 </ul>
                                 @endif
                             </li>
+                            <li><a href="{{ route('home.news') }}" title="Tin tức">Tin tức</a> </li>
                         </ul>
                     </div>
                 </div>

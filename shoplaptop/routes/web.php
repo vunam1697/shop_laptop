@@ -17,6 +17,10 @@ Route::get('/', 'App\Http\Controllers\HomeController@getHome')->name('home.index
 
 Route::get('/tim-kiem', 'App\Http\Controllers\HomeController@getSearch')->name('home.search');
 
+Route::get('/tin-tuc', 'App\Http\Controllers\HomeController@getNews')->name('home.news');
+
+Route::get('/tin-tuc/{slug}', 'App\Http\Controllers\HomeController@getNewsDetail')->name('home.news-detail');
+
 Route::get('/san-pham', 'App\Http\Controllers\HomeController@getProduct')->name('home.product');
 
 Route::get('/san-pham/{slug}', 'App\Http\Controllers\HomeController@getProductDetail')->name('home.product-detail');
@@ -100,9 +104,24 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin'], function () {
     //Xóa đơn hàng
     Route::post('/admin/deleteOrder', ['as' => 'admin.order.delete', 'uses' => 'OrderController@delete']);
 
-     //Lấy đơn hàng cần sửa
-     Route::get('/admin/edit-order/{id}', 'OrderController@editOrder')->name('admin.editOrder');
+    //Lấy đơn hàng cần sửa
+    Route::get('/admin/edit-order/{id}', 'OrderController@editOrder')->name('admin.editOrder');
 
-      //Xem chi tiết đơn hàng
-      Route::get('/admin/detail-order/{id}', 'OrderController@detailOrder')->name('admin.viewDetail');
+    //Xem chi tiết đơn hàng
+    Route::get('/admin/detail-order/{id}', 'OrderController@detailOrder')->name('admin.viewDetail');
+
+    //danh sách tin tức
+    Route::get('/admin/news', 'NewsController@index')->name('news.index');
+
+    //view thêm và sửa tin tức
+    Route::get('/admin/save-news', 'NewsController@saveNews')->name('saveNews.index');
+
+    //Lưu tin tức
+    Route::post('/admin/news', ['as' => 'admin.saveNews', 'uses' => 'NewsController@save']);
+
+    //Lấy tin tức cần sửa
+    Route::get('/admin/edit-news/{id}', 'NewsController@eidtNews')->name('eidtNews.index');
+
+    //Xóa tin tức
+    Route::post('/admin/deleteNews', ['as' => 'admin.news.delete', 'uses' => 'NewsController@delete']);
 });

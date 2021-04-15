@@ -70,7 +70,7 @@
                                     <span style="color: red;"><?php echo number_format($value->tongtien) ?> đ</span>
                                 </td>
                                 <td>
-                                    <span>{{$value->TrangThai() ->first()-> tentrangthai}} </span>
+                                    <span>{{ @$value->TrangThai() ->first()-> tentrangthai}} </span>
                                 </td>
                                 <td>
                                     <span>{{$value -> created_at}} </span>

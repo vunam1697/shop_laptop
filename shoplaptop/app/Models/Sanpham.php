@@ -10,7 +10,7 @@ class Sanpham extends Model
     use HasFactory;
     
     protected $table = 'sanpham';
-    protected $fillable = ['tensp', 'mota', 'noidung', 'hinhanh', 'thuvienanh', 'giaban', 'soluong', 'cpu', 'ram',
+    protected $fillable = ['tensp', 'mota', 'noidung', 'hinhanh', 'thuvienanh', 'giaban', 'soluong', 'cpu', 'ram', 'slug',
     'ocung', 'carddohoa', 'manhinh', 'pin', 'trongluong', 'mausac', 'kichthuoc', 'noibat', 'hienthi'];
 
     public function Loaisp()

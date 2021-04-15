@@ -1,16 +1,16 @@
 @extends('web.master')
 @section('main')
 <?php session_start(); ?>
+    
     <article class="art-address art-carts" style="height: 450px">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="contacts-box">
                         <div class="title-box title-carts">
-                            <h3 class="title">Thông tin dơn hàng</h3>
+                            <h3 class="title">Thông tin đơn hàng</h3>
                         </div>
                         @if (!empty($_SESSION["cart"]))
-                        {{-- {{ dd($_SESSION["cart"]) }} --}}
                         <div class="contents-box carts-box">
                             <div class="contents">
                                 <div class="table-content">

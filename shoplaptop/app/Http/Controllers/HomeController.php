@@ -8,6 +8,7 @@ use App\Models\LoaiSp;
 use App\Models\SanPham_LoaiSp;
 use App\Models\DonHang;
 use App\Models\ChiTietDonHang;
+use App\Models\TinTuc;
 use App\Http\Requests\CheckCustomRequest;
 
 class HomeController extends Controller
@@ -23,7 +24,8 @@ class HomeController extends Controller
     public function getHome() {
         // Lấy tất cả sản phẩm
         $data = Sanpham::all();
-        return view('web.pages.home',compact('data'));
+        $tintuc = TinTuc::orderBy('created_at', 'DESC')->take(4)->get();
+        return view('web.pages.home',compact('data', 'tintuc'));
     }
 
     // Hàm tìm kiếm
@@ -62,6 +64,16 @@ class HomeController extends Controller
 
             return view('web.pages.sanpham', compact('slug', 'data', 'category'));
         } 
+    }
+
+    public function getNews() {
+        $data = TinTuc::paginate(9);
+        return view('web.pages.tin-tuc', compact('data'));
+    }
+
+    public function getNewsDetail($slug) {
+        $data = TinTuc::where('slug', $slug)->first();
+        return view('web.pages.chi-tiet-tin-tuc', compact('data'));
     }
 
     // Thêm giỏ hàng
@@ -132,7 +144,7 @@ class HomeController extends Controller
         $action = $request->action;
         $sanpham = Sanpham::where('id', $id)->first();
         if (!empty($id) && !empty($sl)) {
-            // Kiểm tra số lượng nhập so với số lượng trong DB
+            // Kiểm tra số lượng nhập so với số lượng sản phẩm trong DB
             if ($sl > $sanpham->soluong) {
                 $result['error'] = "Sản phẩm không đủ số lượng yêu cầu";
                 return $result;
