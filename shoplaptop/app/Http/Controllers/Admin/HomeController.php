@@ -16,7 +16,7 @@ class HomeController extends Controller
         $sanpham = Sanpham::all();
         $tintuc = TinTuc::all();
         $donhang = DonHang::all();
-        $user = User::where('isAdmin', NULL)->get();
+        $user = User::where('isAdmin', NULL)->orWhere('isAdmin', 0)->get();
         return view('admin.home.index', compact('sanpham', 'tintuc', 'donhang', 'user'));
     }
     
