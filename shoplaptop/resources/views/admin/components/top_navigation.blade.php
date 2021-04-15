@@ -21,13 +21,7 @@
                         <span class=" fa fa-angle-down"></span>
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
-                        <li><a href="javascript:;">Thông tin cá nhân</a></li>
-                        <li>
-                            <a href="javascript:;">
-                                <span class="badge bg-red pull-right">50%</span>
-                                <span>Cài đặt</span>
-                            </a>
-                        </li>
+                        <li><a href="{{ route('editUser.index', ['id' => $value->id]) }}">Thông tin cá nhân</a></li>
                         <li>
                             <a href="{{url('/admin/logout')}}"><i class="fa fa-sign-out pull-right"></i>Đăng xuất</a>
                         </li>

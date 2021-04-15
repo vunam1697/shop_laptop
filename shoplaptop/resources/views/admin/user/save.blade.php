@@ -60,7 +60,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="reg_input_name" class="req">Mật khẩu <i class="required"> * </i></label>
-                                                <input class="form-control" type="text" value="{{ $user->password }}" name="password" required />
+                                                <input class="form-control" type="password" value="{{ $user->password }}" name="password" required />
                                             </div>
                                         </div>
 
@@ -69,6 +69,7 @@
                                                 <label for="reg_input_name" class="req">Hình ảnh <i class="required">{{!empty($user) && $user->id !=0 ? "" : "*"}}</i></label>
                                                 <input class="form-control" name="avatar" type="file"  onchange="changeFile(this)" {{!empty($user) && $user->id !=0 ? "" : "required"}}/>
                                             </div>
+                                            @if(!empty($user->isAdmin))
                                             <div class="col-md-6">                                        
                                                <div class="class-radio">          
                                                     @if(!empty($user->isAdmin))
@@ -81,6 +82,7 @@
                                                    
                                                </div>
                                             </div>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-6">

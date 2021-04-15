@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<title>Login | Laptop</title>
 </head>
 <body>
 <div class="loginbox">

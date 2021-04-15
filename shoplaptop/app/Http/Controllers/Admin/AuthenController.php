@@ -5,6 +5,9 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use SebastianBergmann\Environment\Console;
+use App\Models\Sanpham;
+use App\Models\TinTuc;
+use App\Models\DonHang;
 
 class AuthenController extends Controller
 {
@@ -13,7 +16,11 @@ class AuthenController extends Controller
     public function index(Request $request) {
         $value = $request->session()->get('login');
         if(!empty($value)){ //Nếu tồn tại session đăng nhập thì bay sang trang chủ admin
-            return view('admin.home.index');
+            $sanpham = Sanpham::all();
+            $tintuc = TinTuc::all();
+            $donhang = DonHang::all();
+            $user = User::where('isAdmin', NULL)->get();
+            return view('admin.home.index', compact('sanpham', 'tintuc', 'donhang', 'user'));
         }
         $userName="";
         return view('admin.login.index',compact('userName'));
@@ -28,7 +35,11 @@ class AuthenController extends Controller
         $userFilter = User::where('name',$request->txtname)->where('password',$request->txtpass)->first(); //tìm xem có người dùng trong db chưa
         if(!empty($userFilter)){ //Nếu tồn tại thì gán value vào session
             $request->session()->put('login', $userFilter);
-            return view('admin.home.index');
+            $sanpham = Sanpham::all();
+            $tintuc = TinTuc::all();
+            $donhang = DonHang::all();
+            $user = User::where('isAdmin', NULL)->get();
+            return view('admin.home.index', compact('sanpham', 'tintuc', 'donhang', 'user'));
         }
 
         $errorMessage ="Tài khoản hoặc mật khẩu sai"; //không tìm thấy user thì bay về trang đăng nhập
