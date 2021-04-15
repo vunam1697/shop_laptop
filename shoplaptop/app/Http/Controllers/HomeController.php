@@ -18,7 +18,10 @@ class HomeController extends Controller
         // Lấy dữ liệu loại sản phẩm
         // sử dụng tất cả các trang
         $categories = LoaiSp::all();
-        $cart = $_SESSION["cart"];
+        $cart=[];
+        if(isset($_SESSION["cart"])){
+            $cart = $_SESSION["cart"];
+        }
         view()->share(compact('categories', 'cart'));
     }
 

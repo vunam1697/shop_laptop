@@ -103,13 +103,15 @@ class UserController extends Controller
             //lưu người dùng
             if (!empty($request->id)) {
                 User::where('id', $request->id)->update($userNew);
+                $userFilter = User::where('id',$request->id)->first();
+                $request->session()->put('login', $userFilter);
                 $message = "Cập nhật thành công";
             } 
             else {
-                User::create($userNew);
+                $saveUser = User::create($userNew);
+                $request->session()->put('login', $saveUser);
                 $message = "Thêm thành công";
             }
-
             $success = true;            
             $datas = User::orderBy('created_at', 'DESC')->get(); //Lấy tất cả user từ db
             return view('admin.user.list', compact('datas', 'success', 'message'));
