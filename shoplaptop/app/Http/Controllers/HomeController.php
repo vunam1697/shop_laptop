@@ -14,10 +14,12 @@ use App\Http\Requests\CheckCustomRequest;
 class HomeController extends Controller
 {
     public function __construct() {
+        session_start();
         // Lấy dữ liệu loại sản phẩm
         // sử dụng tất cả các trang
         $categories = LoaiSp::all();
-        view()->share(compact('categories'));
+        $cart = $_SESSION["cart"];
+        view()->share(compact('categories', 'cart'));
     }
 
     // Trang chủ

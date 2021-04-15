@@ -1,33 +1,4 @@
-<?php session_start()?>
-
 <header>
-    {{-- <section class="header-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 visible-desktop">
-                    <div class="header-top_left">
-                        <span>Chào mừng bạn đã đến với Cho thuê máy công trình!</span>
-                    </div>
-                </div>
-                <div class="col-md-6 flex-center-end">
-                    <div class="header-top_right flex-center">
-                        <div class="social">
-                            <ul class="flex-center">
-                                <li><a href="" title="" class="fa fa-facebook"></a> </li>
-                                <li><a href="" title="" class="fa fa-youtube-play"></a> </li>
-                                <li><a href="" title="" class="fa fa-twitter"></a> </li>
-                                <li><a href="" title="" class="fa fa-instagram"></a> </li>
-                            </ul>
-                        </div>
-                        <div class="flag flex-center">
-                            <a href="" title="" class="vi-flg"><img src="images/vnflag.png" alt=""> </a>
-                            <a href="" title="" class="en-flg"><img src="images/enflag.png" alt=""> </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> --}}
     <section class="header-main">
         <div class="container">
             <div class="row">
@@ -68,7 +39,7 @@
                     <a href="{{ route('home.cart') }}">
                         <i class="fa fa-shopping-cart"></i>
                         <span class="number">
-                            {{ isset($_SESSION['cart']) ? count($_SESSION["cart"]) : 0 }}
+                            {{ isset($cart) ? count($cart) : 0 }}
                         </span>
                     </a>
                 </div>

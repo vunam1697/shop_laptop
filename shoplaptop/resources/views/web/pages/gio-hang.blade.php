@@ -1,6 +1,6 @@
 @extends('web.master')
 @section('main')
-<?php session_start(); ?>
+
     
     <article class="art-address art-carts" style="height: 450px">
         <div class="container">
@@ -10,7 +10,7 @@
                         <div class="title-box title-carts">
                             <h3 class="title">Thông tin đơn hàng</h3>
                         </div>
-                        @if (!empty($_SESSION["cart"]))
+                        @if (!empty($cart))
                         <div class="contents-box carts-box">
                             <div class="contents">
                                 <div class="table-content">
@@ -31,7 +31,7 @@
                                                 $tongsoluong = 0; 
                                                 $stt = 1;
                                             ?>
-                                            @foreach ($_SESSION["cart"] as $key => $item)
+                                            @foreach ($cart as $key => $item)
                                             <tr class="content-table">
                                                 <td class="center title">{{ $stt++ }}</td>
                                                 <td class="center">
@@ -98,7 +98,7 @@
         </div>
     </article>
 
-    @if (!empty($_SESSION["cart"]))
+    @if (!empty($cart))
     <article class="art-address art-orders">
         <div class="container">
             <div class="row">
