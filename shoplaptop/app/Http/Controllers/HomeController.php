@@ -83,7 +83,6 @@ class HomeController extends Controller
 
     // Thêm giỏ hàng
     public function postAddCart(Request $request) {
-        session_start();
         $idSp   = $request->id_sanpham;
         // Lấy dữ liệu sản phẩm đã chọn
         $sanpham = Sanpham::findOrFail($idSp);
@@ -142,7 +141,6 @@ class HomeController extends Controller
 
     // Cập nhật số lượng sản phẩm trong giỏ hàng
     public function updateCart(Request $request) {
-        session_start();
         $result = [];
         $id = $request->id;
         $sl = $request->sl;
@@ -179,7 +177,6 @@ class HomeController extends Controller
 
     // Xử lý đặt hàng
     public function postCheckOut(CheckCustomRequest $request) {
-        session_start();
         // Dữ liệu lấy từ form 
         $data = [
             'tenkh' => $request->hovaten,

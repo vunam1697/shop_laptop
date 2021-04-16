@@ -165,10 +165,10 @@
                     @foreach ($product_same_category as $item)
                     <div class="col-md-3">
                         <div class="product-item">
-                            <a href="{{ route('home.product-detail', ['slug' => $slug]) }}" 
+                            <a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" 
                                 title="{{ $item->tensp }}" class="zoom"><img src="{{ url('/image/') .'/'. $item->hinhanh }}" alt="{{ $item->tensp }}"> </a>
                             <div class="product-text">
-                                <h4><a href="{{ route('home.product-detail', ['slug' => $slug]) }}" title="{{ $item->tensp }}" class="text-left">{{ $item->tensp }}</a> </h4>
+                                <h4><a href="{{ route('home.product-detail', ['slug' => $item->slug]) }}" title="{{ $item->tensp }}" class="text-left">{{ $item->tensp }}</a> </h4>
                                 <div class="price text-left">Giá: {{ number_format($item->giaban, '0', '.', '.') }} VNĐ</div>
                             </div>
                         </div>
