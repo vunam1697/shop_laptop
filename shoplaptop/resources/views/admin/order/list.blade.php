@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-md-6">
                             <label for="reg_input_name" class="req">Số điện thoại <i class="required"> * </i></label>
-                            <input class="form-control" type="text"  name="sdt" pattern="(09|01[2|6|8|9])+([0-9]{8})\b" maxlength="10" required />
+                            <input class="form-control" type="text"  name="sdt" pattern="(09|03|01[2|6|8|9])+([0-9]{8})\b" maxlength="10" required />
                         </div>
                     </div>
 
