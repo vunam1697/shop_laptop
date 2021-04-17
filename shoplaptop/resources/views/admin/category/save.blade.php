@@ -48,8 +48,8 @@
                                                 <input class="form-control" name="tenloaisp" value="{{$category -> 	tenloaisp }}" type="text" required />
                                             </div>
                                             <div class="col-md-12">
-                                                <label for="reg_input_name" class="req">Mô tả <i class="required"> * </i></label>
-                                                <textarea class="form-control" name="mota" value="{{$category -> mota }}" rows="5" required>{{$category -> mota }}</textarea>
+                                                <label for="reg_input_name" class="req">Mô tả </label>
+                                                <textarea class="form-control" name="mota" value="{{$category -> mota }}" rows="5" >{{$category -> mota }}</textarea>
                                             </div>
                                         </div>
 
