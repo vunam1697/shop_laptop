@@ -1,3 +1,11 @@
+<?php 
+    $value = session()->get('login');
+?>
+@if(!empty($value) && $value->isAdmin==0)
+    <script>
+        window.location.href = "{{url('/admin/index-login')}}";
+    </script>
+@endif
 @extends('admin._layout')
 @section('main')
 <div class="row">

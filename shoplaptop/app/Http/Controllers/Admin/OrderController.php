@@ -304,7 +304,7 @@ class OrderController extends Controller
 
     //Xem chi tiết đơn hàng
     public function detailOrder($id){
-        $sanpham = Sanpham::where('soluong', '>', 0)->get();
+        $sanpham = [];
         $order = DonHang::where('id', $id)->first();
         $trangthaidonhang = TrangThaiDonHang::all();
         $isDetail=true;

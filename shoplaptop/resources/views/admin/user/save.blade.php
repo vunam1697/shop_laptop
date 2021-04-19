@@ -1,3 +1,11 @@
+<?php 
+    $value = session()->get('login');
+?>
+@if(!empty($value) && $value->isAdmin==0)
+    <script>
+        window.location.href = "{{url('/admin/index-login')}}";
+    </script>
+@endif
 @extends('admin._layout')
 @section('main')
 <div class="row">
@@ -69,7 +77,7 @@
                                                 <label for="reg_input_name" class="req">Hình ảnh <i class="required">{{!empty($user) && $user->id !=0 ? "" : "*"}}</i></label>
                                                 <input class="form-control" name="avatar" type="file"  onchange="changeFile(this)" {{!empty($user) && $user->id !=0 ? "" : "required"}}/>
                                             </div>
-                                            @if(!empty($user->isAdmin))
+                                            @if(empty($user->isAdmin) ||$user->isAdmin==0 )
                                             <div class="col-md-6">                                        
                                                <div class="class-radio">          
                                                     @if(!empty($user->isAdmin))
@@ -82,6 +90,8 @@
                                                    
                                                </div>
                                             </div>
+                                            @else
+                                                <input  name="isAdmin" type="hidden" value="1"  /> 
                                             @endif
                                         </div>
                                         <div class="form-group">

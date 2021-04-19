@@ -104,12 +104,18 @@ class UserController extends Controller
             if (!empty($request->id)) {
                 User::where('id', $request->id)->update($userNew);
                 $userFilter = User::where('id',$request->id)->first();
-                $request->session()->put('login', $userFilter);
+                $value = session()->get('login');
+                if($value->id==$request->id){
+                    session()->put('login', $userFilter);
+                }
                 $message = "Cập nhật thành công";
             } 
             else {
                 $saveUser = User::create($userNew);
-                $request->session()->put('login', $saveUser);
+                $value = session()->get('login');
+                if($value->id==$request->id){
+                    session()->put('login', $saveUser);
+                }
                 $message = "Thêm thành công";
             }
             $success = true;            
