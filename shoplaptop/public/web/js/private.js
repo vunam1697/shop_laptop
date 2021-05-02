@@ -273,22 +273,25 @@ function updateItem(id) {
 }
 
 function deleteItem(id) {
-    $.ajax({
-        type: 'GET',
-        url: urlUpdateItem,
-        data: {
-            id: id,
-            action: "delete"
-        },
-        success: function(data) {
-            if (data.error) {
-                alert(data.error);
-                location.reload();
+    var r = confirm("Xóa sản phẩm khỏi giỏ hàng?")
+    if (r == true) {
+        $.ajax({
+            type: 'GET',
+            url: urlUpdateItem,
+            data: {
+                id: id,
+                action: "delete"
+            },
+            success: function(data) {
+                if (data.error) {
+                    alert(data.error);
+                    location.reload();
+                }
+                if (data.success) {
+                    alert(data.success);
+                    location.reload();
+                }
             }
-            if (data.success) {
-                alert(data.success);
-                location.reload();
-            }
-        }
-    })
+        })
+    } 
 }

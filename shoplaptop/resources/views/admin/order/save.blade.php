@@ -137,7 +137,7 @@
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="reg_input_name" class="req">Số điện thoại <i class="required"> * </i></label>
-                                                    <input class="form-control" type="text" value="{{ $order->sdt }}" name="sdt" pattern="(09|01[2|6|8|9])+([0-9]{8})\b" maxlength="12" required />
+                                                    <input class="form-control" type="text" value="{{ $order->sdt }}" name="sdt" pattern="(09|03|01[2|6|8|9])+([0-9]{8})\b" maxlength="12" required />
                                                 </div>
                                             </div>
 
