@@ -73,7 +73,7 @@
                                     <span>{{ @$value->TrangThai() ->first()-> tentrangthai}} </span>
                                 </td>
                                 <td>
-                                    <span>{{$value -> created_at}} </span>
+                                    <span>{{$value -> created_at -> format('d/m/Y H:i:s')}} </span>
                                 </td>
                                 <td>
                                     @if($value -> status != 3)

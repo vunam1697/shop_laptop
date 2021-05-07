@@ -50,7 +50,7 @@
                                     <img src="{{url('/image/news')}}/{{$value -> hinhanh}}" width="100" />
                                 </td>
                                 <td>
-                                    <span>{{$value -> created_at}} </span>
+                                    <span>{{$value -> created_at ->format('d/m/Y H:i:s')}} </span>
                                 </td>
                                 <td>
                                     <a href="{{route('eidtNews.index', ['id'=> $value -> id ])}}" title="Cập nhật"><button  type="button" class="btn btn-primary"><i class="fa fa-pencil"></i> </button></a>
